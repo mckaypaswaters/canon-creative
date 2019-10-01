@@ -1,0 +1,23 @@
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('https://wallpaperplay.com/walls/full/0/7/b/67256.jpg');
+    background-size: cover;
+    
+}
+.login-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid black 1px;
+    height: 50%;
+    width: 80%;
+    
+}
+.auth-logo {
+    width: 100px;
+    height: auto;
+}
