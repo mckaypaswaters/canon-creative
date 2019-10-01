@@ -6,14 +6,14 @@ module.exports = {
         const {username, password} = req.body
 
         const user = await db.find_username(username)
-        if(user[0]) return res.status(200).send({message: 'Username already in use'})
+        if(user[0]) return res.status(200).send('Failed')
 
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
 
         const [userId] = await db.create_user({username, password: hash})
 
-        res.status(200).send({message: 'Successfully Registered', user: userId})
+        res.status(200).send({message: 'Successfully Registered', userId: userId, username})
     },
     async login(req, res){
         const db = req.app.get('db')
