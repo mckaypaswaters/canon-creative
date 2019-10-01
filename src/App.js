@@ -1,5 +1,4 @@
 import React from 'react';
-import Home from './Components/Home/Home'
 import routes from './routes'
 
 import './App.css';

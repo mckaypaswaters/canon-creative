@@ -1,10 +1,7 @@
 import React from 'react'
-import './nav.css'
+import './nav.scss'
 
 class Nav extends React.Component {
-    constructor(){
-        super()
-    }
 
     render(){
         return(
