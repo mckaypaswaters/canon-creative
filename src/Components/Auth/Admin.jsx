@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './admin.scss'
-import store from '../../ducks/store'
+import store, {ADD_TO_GALLERY} from '../../ducks/store'
+import axios from 'axios'
 
 class Admin extends Component {
     constructor(){
@@ -16,7 +17,23 @@ class Admin extends Component {
         }
     }
 
+    async componentDidMount() {
+        const photos = await axios.get('/api/photos', this.state.galleryArr)
+        console.log(photos)
+        this.setState({galleryArr: photos.data})
+    }
 
+    handleChange(e){
+        this.setState({
+            input: e.target.value
+        })
+    }
+    updateTitle(){
+        this.setState({
+            galleryName: this.state.input,
+            input: ''
+        })
+    }
     
     render(){
         return(
@@ -25,12 +42,26 @@ class Admin extends Component {
                     <div className="individual-post">
                         <img className='mapImg'src={this.state.galleryImg} alt=""/>
                         <div className='title-input-button'>
+                            <button className='delete-button'>X</button>
                             <h3>{this.state.galleryName}</h3>
-                            <input value={this.state.input}type="text"/>
+                            <input onChange={e => this.handleChange(e)}value={this.state.input}type="text"/>
                             <div className="save-upload-buttons">
-                                <button>Save Title</button>
-                                <button>Upload</button>
+                                <button onClick={() => this.updateTitle()}>Save Title</button>
+                                <button>Upload Image</button>
                             </div>
+                            <button>Add Image to Gallery</button>
+                        </div>
+                    </div>
+                    <div className="individual-post">
+                        <img className='mapImg'src={this.state.galleryImg} alt=""/>
+                        <div className='title-input-button'>
+                            <h3>{this.state.galleryName}</h3>
+                            <input onChange={e => this.handleChange(e)}value={this.state.input}type="text"/>
+                            <div className="save-upload-buttons">
+                                <button onClick={() => this.updateTitle()}>Save Title</button>
+                                <button>Upload Image</button>
+                            </div>
+                            <button>Save Changes</button>
                         </div>
                     </div>
                 </div>
