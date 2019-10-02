@@ -31,7 +31,9 @@ class Nav extends React.Component {
                                         <li>About</li>
                                     </Link>
                                     <li>K. Riddle Films</li>
-                                    <li>Kaitlyn Harris Photos</li>
+                                    <Link className="link-decoration" to='/kaitlyn-harris-photo'>
+                                        <li>Kaitlyn Harris Photos</li>
+                                    </Link>
                                     <li>Contact</li>
                                 </nav>
                             </nav>
