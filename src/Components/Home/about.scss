@@ -8,6 +8,11 @@
     background-size: cover;
     background-position: center;
 }
+.below-about {
+    display: flex;
+    flex-direction: column;
+    padding: 0 75px;
+}
 
 @media (min-width: 320px){.about-wallpaper {height: 45%;}}
 @media (min-width: 375px){.about-wallpaper { height: 60%;}}

@@ -1,0 +1,38 @@
+.white-space {
+    background: url('../../assets/lake.JPG');
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding-top: 8vh;
+}
+.mid-container {
+    background: white;
+    width: 85%;
+    height: 90%;
+    border: solid black 1px;
+    display: flex;
+    padding: 5vh 0;
+}
+.individual-post {
+    display: flex;
+    flex-direction: row;
+    background: lightgray;
+    margin: 0 18px;
+    width: 45%;
+    height: 33%;
+    padding: 2vh 1vw;
+    .mapImg {
+        width: 20vw;
+        height: auto;
+        margin-right: 5vw;
+    }
+    .title-input-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}
+

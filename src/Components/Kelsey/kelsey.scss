@@ -1,0 +1,22 @@
+.kelsey-parent {
+    height: 100vh;
+}
+.kelsey-wallpaper {
+    width: 100%;
+    height: 33vh;
+    background: url('../../assets/kelsey.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.below-kelsey {
+    display: flex;
+    flex-direction: column;
+    padding: 0 75px;
+}
+
+@media (min-width: 320px){.kelsey-wallpaper {height: 45%;}}
+@media (min-width: 375px){.kelsey-wallpaper { height: 60%;}}
+@media (min-width: 425px){.kelsey-wallpaper {height: 75%;}}
+@media (min-width: 645px){.kelsey-wallpaper {height: 85%;}}
+@media (min-width: 732px){.kelsey-wallpaper {height: 90%;}}
+@media (min-width: 769px){.kelsey-wallpaper {height: 100%;}}
