@@ -20,3 +20,9 @@ CREATE TABLE gallery (
 );
 
 SELECT * FROM gallery;
+
+INSERT INTO gallery (img, name, users_id)
+VALUES ('https://i.ytimg.com/vi/BEm8MzrdkJ0/maxresdefault.jpg', 'Sup', 22);
+
+DELETE FROM gallery
+WHERE gallery_id = 10;

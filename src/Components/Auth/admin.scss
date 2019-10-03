@@ -10,21 +10,23 @@
 .mid-container {
     background: white;
     width: 85%;
-    height: 90%;
+    height: auto;
     border: solid black 1px;
     display: flex;
     padding: 5vh 0;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 .individual-post {
     display: flex;
     flex-direction: row;
     background: lightgray;
-    margin: 0 18px;
-    width: 45%;
+    margin: 20px 18px;
+    width: 40%;
     height: 33%;
     padding: 2vh 1vw;
     .mapImg {
-        width: 20vw;
+        width: 18vw;
         height: auto;
         margin-right: 5vw;
     }

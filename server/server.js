@@ -18,6 +18,8 @@ app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
 
 app.get('/api/photos', galleryCtrl.getAllPhotos)
+app.post('/api/photo', galleryCtrl.createPhoto)
+app.delete('/api/photo/:gallery_id', galleryCtrl.deletePhoto)
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
