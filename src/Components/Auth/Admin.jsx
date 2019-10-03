@@ -25,9 +25,18 @@ class Admin extends Component {
         const {name, img} = this.state
         await axios.post('/api/photo', {name, img})
         this.componentDidMount()
+        this.setState({
+            name: '',
+            img: ''
+        })
     }
     deletePhoto(gallery_id){
         axios.delete(`/api/photo/${gallery_id}`)
+        this.componentDidMount()
+    }
+    updatePhoto(gallery_id){
+        const {name, img} = this.state
+        axios.put(`/api/photo/${gallery_id}`, {name, img})
         this.componentDidMount()
     }
     handleChange(e, key){
@@ -39,18 +48,20 @@ class Admin extends Component {
     render(){
         const mappedPhotos = this.state.galleryArr.map((el, i) => {
             return(
-                <div className="individual-post">
+                
+                <div className="individual-post" key={el.gallery_id}>
                         <img className='mapImg'src={el.img} alt=""/>
                         <div className='title-input-button'>
                             <button onClick={() => this.deletePhoto(el.gallery_id)}className='delete-button'>X</button>
                             <h3>{el.name}</h3>
-                            <input onChange={e => this.handleChange(e, 'galleryName')} placeholder='-insert image name-'type="text"/>
+                            <input onChange={e => this.handleChange(e, 'name')} value={this.state.name} placeholder='-insert image name-'type="text"/>
                             <div className="save-upload-buttons">
-                                <input onChange={e => this.handleChange(e, 'galleryImg')} placeholder='-insert image url-' type="text"/>
+                                <input onChange={e => this.handleChange(e, 'img')} value={this.state.img} placeholder='-insert image url-' type="text"/>
                             </div>
+                            <button onClick={() => this.updatePhoto(el.gallery_id)}>Update Image</button>
                             <button>Add Image to Gallery</button>
                         </div>
-                    </div>
+                    </div>   
             )
         })
 
@@ -60,11 +71,10 @@ class Admin extends Component {
                     <div className="individual-post">
                         <img className='mapImg'src={this.state.img} alt=""/>
                         <div className='title-input-button'>
-                            <button className='delete-button'>X</button>
                             <h3>{this.state.name}</h3>
-                            <input onChange={e => this.handleChange(e, 'name')} placeholder='-insert image name-' type="text"/>
+                            <input onChange={e => this.handleChange(e, 'name')} value={this.state.name}placeholder='-insert image name-' type="text"/>
                             <div className="save-upload-buttons">
-                                <input onChange={e => this.handleChange(e, 'img')} placeholder='-insert image url-' type="text"/>
+                                <input onChange={e => this.handleChange(e, 'img')} value={this.state.img} placeholder='-insert image url-' type="text"/>
                             </div>
                             <button onClick={() => this.createPhoto()}>Add Image to Gallery</button>
                         </div>

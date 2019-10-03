@@ -26,3 +26,8 @@ VALUES ('https://i.ytimg.com/vi/BEm8MzrdkJ0/maxresdefault.jpg', 'Sup', 22);
 
 DELETE FROM gallery
 WHERE gallery_id = 10;
+
+UPDATE gallery
+SET img = 'https://emorywheel.com/wp-content/uploads/2019/03/AJR-Jim-Metzger_Hi-Res-2-1600x1068.jpg',
+name = 'AJR'
+WHERE gallery_id = 14;
