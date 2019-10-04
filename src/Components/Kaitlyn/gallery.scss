@@ -1,0 +1,21 @@
+.gallery-back {
+    height: auto;
+    background: lightgray;
+    padding: 5vh 3vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.single-photo {
+    height: 35vh;
+    width: 30%;
+    border: solid black 1px;
+    margin: 1.5% 1.5%;
+    .single-photo-img {
+        height: 100%;
+        width: 100%;
+        &:hover {
+            opacity: .5;
+        }
+    }
+}
