@@ -32,6 +32,7 @@ class Posts extends Component {
                     <input onChange={e => this.handleChange(e, 'name')} value={this.state.name} placeholder='-insert image name-'type="text"/>
                     <div className="save-upload-buttons">
                         <input onChange={e => this.handleChange(e, 'img')} value={this.state.img} placeholder='-insert image url-' type="text"/>
+                        {/* <input type="file"/> */}
                     </div>
                     <button onClick={() => this.bothMethods()}>Update Image</button>
                 </div>

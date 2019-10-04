@@ -36,7 +36,9 @@ class Nav extends React.Component {
                                     <Link className="link-decoration" to='/kaitlyn-harris-photo'>
                                         <li>Kaitlyn Harris Photos</li>
                                     </Link>
-                                    <li>Contact</li>
+                                    <Link className="link-decoration" to='/contact'>
+                                        <li>Contact</li>
+                                    </Link>
                                 </nav>
                             </nav>
                         </div>
@@ -55,7 +57,9 @@ class Nav extends React.Component {
                     <Link className="link-decoration" to='/kaitlyn-harris-photo'>
                         <li>Kaitlyn Harris Photos</li>
                     </Link>
-                    <li>Contact</li>
+                    <Link className="link-decoration" to='/contact'>
+                        <li>Contact</li>
+                    </Link>
                 </nav>
             </div>
         )
