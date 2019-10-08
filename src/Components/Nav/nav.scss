@@ -1,4 +1,4 @@
-$navBackground: rgba(89, 89, 89, 0.8);
+$navBackground: rgba(89, 89, 89, 0.85);
 
 
 .nav {
@@ -6,7 +6,6 @@ $navBackground: rgba(89, 89, 89, 0.8);
     flex-direction: row;
     align-items: center;
     background: $navBackground;
-    
 }
 .hamburger {
     font-size: 24px;
@@ -59,7 +58,9 @@ $navBackground: rgba(89, 89, 89, 0.8);
     flex-direction: column;
     list-style: none;
     background: $navBackground;
-    justify-content: center;
+    position: relative;
+    z-index: 10;
+    // justify-content: space-evenly;
     align-items: center;
     height: 100vh;
     transition: 1s;
@@ -69,7 +70,7 @@ $navBackground: rgba(89, 89, 89, 0.8);
     color: white;
     font-size: 30px;
     li {
-        margin: 5vh 0;
+        margin: 6vh 0 5vh 0;
         color: white;
     }
     .link-decoration {
