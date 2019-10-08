@@ -19,3 +19,16 @@
         }
     }
 }
+
+@media (max-width: 580px) {
+    .gallery-back {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // justify-content: center;
+        padding: 3vh 0;
+    }
+    .single-photo {
+        width: 90%;
+    }
+}
