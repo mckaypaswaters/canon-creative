@@ -6,6 +6,7 @@ const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 const app = express()
 const authCtrl = require('./controllers/authController')
 const galleryCtrl = require('./controllers/galleryController')
+const twilioCtrl = require('./controllers/twilioController')
 
 app.use(express.json())
 app.use(session({
@@ -21,6 +22,8 @@ app.get('/api/photos', galleryCtrl.getAllPhotos)
 app.post('/api/photo', galleryCtrl.createPhoto)
 app.delete('/api/photo/:gallery_id', galleryCtrl.deletePhoto)
 app.put('/api/photo/:gallery_id', galleryCtrl.updatePhoto)
+
+app.post('/api/messages', twilioCtrl.twilio)
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)

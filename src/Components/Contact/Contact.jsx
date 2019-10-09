@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Nav from '../Nav/Nav'
 import './contact.scss'
 import contactImg from '../../assets/contactImg.jpg'
+import axios from 'axios'
 
 class Contact extends Component {
     state = {
@@ -11,12 +12,25 @@ class Contact extends Component {
         subject: '',
         message: ''
     }
-
     handleChange(e, key){
         this.setState({
             [key]: e.target.value
         })
     }
+    submitTwilio(){
+        axios.post('/api/messages', this.state)
+        this.clearInputs()
+    }
+    clearInputs(){
+        this.setState({
+            firstName: '',
+            lastName: '',
+            email: '',
+            subject: '',
+            message: ''
+        })
+    }
+
     render(){
         return(
             <div className='contact-parent'>
@@ -31,22 +45,27 @@ class Contact extends Component {
                         <div className="all-inputs">
                             <div className='first-and-last'>
                                 <input 
+                                    value={this.state.firstName}
                                     onChange={(e) => this.handleChange(e, 'firstName')}
                                     className='firstNameInput' placeholder='First Name' type="text"/>
-                                <input 
+                                <input
+                                    value={this.state.lastName} 
                                     onChange={(e) => this.handleChange(e, 'lastName')}
                                     className='lastNameInput' placeholder='Last Name' type="text"/>
                             </div>
-                            <input 
+                            <input
+                                value={this.state.email} 
                                 onChange={(e) => this.handleChange(e, 'email')}
                                 className='emailInput' placeholder='Email' type="text"/>
-                            <input 
+                            <input
+                                value={this.state.subject} 
                                 onChange={(e) => this.handleChange(e, 'subject')}
                                 className='subjectInput' placeholder='Subject' type="text"/>
-                            <input 
+                            <input
+                                value={this.state.message} 
                                 onChange={(e) => this.handleChange(e, 'message')}
                                 className='messageInput' placeholder='Message' type="text"/>
-                            <button className='contact-submit'>Submit</button>
+                            <button onClick={() => this.submitTwilio()} className='contact-submit'>Submit</button>
                         </div>
                     </div>
                 </div>
