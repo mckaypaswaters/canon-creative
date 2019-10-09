@@ -4,6 +4,7 @@ import store, {ADD_TO_GALLERY} from '../../ducks/store'
 import axios from 'axios'
 import Posts from './Posts'
 import {Link} from 'react-router-dom'
+import {v4 as randomString} from 'uuid'
 
 class Admin extends Component {
     constructor(){
@@ -33,7 +34,8 @@ class Admin extends Component {
         this.componentDidMount()
         this.setState({
             name: '',
-            img: ''
+            img: '',
+            isUploading: false
         })
     }
     deletePhoto(gallery_id){
@@ -56,6 +58,56 @@ class Admin extends Component {
             payload: photos
         })
     }
+    getSignedRequest = ([file]) => {
+        this.setState({ isUploading: true });
+        // We are creating a file name that consists of a random string, and the name of the file that was just uploaded with the spaces removed and hyphens inserted instead. This is done using the .replace function with a specific regular expression. This will ensure that each file uploaded has a unique name which will prevent files from overwriting other files due to duplicate names.
+        const fileName = `${randomString()}-${file.name.replace(/\s/g, '-')}`;
+    
+        // We will now send a request to our server to get a "signed url" from Amazon. We are essentially letting AWS know that we are going to upload a file soon. We are only sending the file-name and file-type as strings. We are not sending the file itself at this point.
+        axios
+          .get('/api/signs3', {
+            params: {
+              'file-name': fileName,
+              'file-type': file.type,
+            },
+          })
+          .then(response => {
+            const { signedRequest, url } = response.data;
+            this.uploadFile(file, signedRequest, url);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      };
+    
+      uploadFile = (file, signedRequest, url) => {
+        const options = {
+          headers: {
+            'Content-Type': file.type,
+          },
+        };
+    
+        axios
+          .put(signedRequest, file, options)
+          .then(response => {
+            this.setState({ isUploading: false, img:url });
+            // THEN DO SOMETHING WITH THE URL. SEND TO DB USING POST REQUEST OR SOMETHING
+          })
+          .catch(err => {
+            this.setState({
+              isUploading: false,
+            });
+            if (err.response.status === 403) {
+              alert(
+                `Your request for a signed URL failed with a status 403. Double check the CORS configuration and bucket policy in the README. You also will want to double check your AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY in your .env and ensure that they are the same as the ones that you created in the IAM dashboard. You may need to generate new keys\n${
+                  err.stack
+                }`
+              );
+            } else {
+              alert(`ERROR: ${err.status}\n ${err.stack}`);
+            }
+          });
+      };
 
     render(){
         const mappedPhotos = this.state.galleryArr.map((el, i) => {
@@ -73,7 +125,6 @@ class Admin extends Component {
         })
 
         return(
-            <header>
             <div className='white-space'>
                 <div className="mid-container">
                     <div className="individual-post">
@@ -85,8 +136,8 @@ class Admin extends Component {
                             <h3>{this.state.name}</h3>
                             <input onChange={e => this.handleChange(e, 'name')} value={this.state.name}placeholder='-insert image name-' type="text"/>
                             <div className="save-upload-buttons">
-                                <input onChange={e => this.handleChange(e, 'img')} value={this.state.img} placeholder='-insert image url-' type="text"/>
-                                {/* <input type="file"/> */}
+                                {/* <input onChange={e => this.handleChange(e, 'img')} value={this.state.img} placeholder='-insert image url-' type="text"/> */}
+                                <input onChange={e => this.getSignedRequest(e.target.files)} type="file"/>
                             </div>
                             <button onClick={() => this.createPhoto()}>Add Image to Gallery</button>
                         </div>
@@ -94,7 +145,6 @@ class Admin extends Component {
                     {mappedPhotos}
                 </div>
             </div>
-            </header>
         )
     }
 }

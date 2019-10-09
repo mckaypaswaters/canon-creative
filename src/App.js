@@ -3,7 +3,8 @@ import routes from './routes'
 import store, {ADD_TO_GALLERY} from './ducks/store'
 import axios from 'axios'
 
-import './App.css';
+
+import './App.scss';
 
 class App extends React.Component {
   constructor(){

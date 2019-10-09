@@ -1,5 +1,5 @@
 $navBackground: rgba(97, 96, 96, 0.85);
-// $navBackground: rgba(232, 210, 184, 0.892);
+@import '../../App.scss';
 
 
 .nav {
@@ -21,7 +21,7 @@ $navBackground: rgba(97, 96, 96, 0.85);
     color: white;
     font-weight: bold;
     font-size: 28px;
-    font-family: 'Indie Flower', cursive;
+    font-family: $fontFamily;
 }
 .one-more-div {
     display: flex;
@@ -41,7 +41,7 @@ $navBackground: rgba(97, 96, 96, 0.85);
     flex-direction: row;
     list-style: none;
     color: white;
-    font-family: 'Indie Flower', cursive;
+    font-family: $fontFamily;
     li {
         margin: 0 5vw 1vh 5vw;
         font-size: 20px;
@@ -67,7 +67,7 @@ $navBackground: rgba(97, 96, 96, 0.85);
     transition: 1s;
     // border: solid black 1px;
     overflow: hidden;
-    font-family: 'Indie Flower', cursive;
+    font-family: $fontFamily;
     color: white;
     font-size: 30px;
     li {

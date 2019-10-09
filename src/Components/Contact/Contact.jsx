@@ -3,6 +3,7 @@ import Nav from '../Nav/Nav'
 import './contact.scss'
 import contactImg from '../../assets/contactImg.jpg'
 import axios from 'axios'
+import sweet from 'sweetalert2'
 
 class Contact extends Component {
     state = {
@@ -19,6 +20,7 @@ class Contact extends Component {
     }
     submitTwilio(){
         axios.post('/api/messages', this.state)
+        sweet.fire({type: 'success', text: 'Your message has been sent!'})
         this.clearInputs()
     }
     clearInputs(){
@@ -39,7 +41,7 @@ class Contact extends Component {
                 </div>
                 <div className="text-img-input">
                     <h1 className='contact-h1'>We are excited to hear from you!</h1>
-                    <h4>Send us a message below</h4>
+                    <h4 className='contact-h4'>Send us a message below</h4>
                     <div className='hero-and-inputs'>
                         <img className='contact-img' src={contactImg} alt=""/>
                         <div className="all-inputs">
@@ -61,7 +63,8 @@ class Contact extends Component {
                                 value={this.state.subject} 
                                 onChange={(e) => this.handleChange(e, 'subject')}
                                 className='subjectInput' placeholder='Subject' type="text"/>
-                            <input
+                            <textarea
+                                wrap='hard'
                                 value={this.state.message} 
                                 onChange={(e) => this.handleChange(e, 'message')}
                                 className='messageInput' placeholder='Message' type="text"/>
