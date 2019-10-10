@@ -4,11 +4,17 @@ import Nav from '../Nav/Nav'
 import './home.scss'
 
 class Home extends React.Component {
+
+    // componentDidMount(){
+    //     let wallpaper = document.querySelector('home-wallpaper')
+    //     console.log(wallpaper)
+    // }
     
     render(){
         return(
             <div className='home-parent'>
                 <div className='home-wallpaper'>
+                    {console.log(document.getElementsByClassName('home-wallpaper'))}
                     <Nav/>
                 </div>
                 <div className='below-home'>

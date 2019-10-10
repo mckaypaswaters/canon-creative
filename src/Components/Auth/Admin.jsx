@@ -16,7 +16,8 @@ class Admin extends Component {
             galleryArr: reduxState.galleryArr,
             name: '',
             img: '',
-            input: ''
+            input: '',
+            users_id: null
         }
         this.deletePhoto = this.deletePhoto.bind(this)
         this.updatePhoto = this.updatePhoto.bind(this)
@@ -27,10 +28,11 @@ class Admin extends Component {
         const photos = await axios.get('/api/photos')
         this.setState({galleryArr: photos.data})
         this.addToRedux(photos.data)
+        console.log(photos)
     }
     async createPhoto(){
-        const {name, img} = this.state
-        await axios.post('/api/photo', {name, img})
+        const {name, img, users_id} = this.state
+        await axios.post('/api/photo', {name, img, users_id})
         this.componentDidMount()
         this.setState({
             name: '',
@@ -109,6 +111,14 @@ class Admin extends Component {
           });
       };
 
+      getSelection(){
+        let e = document.querySelector('#select')
+        let strUser = e.options[e.selectedIndex].value
+        this.setState({
+          users_id: strUser
+        })
+      }
+
     render(){
         const mappedPhotos = this.state.galleryArr.map((el, i) => {
             return(
@@ -117,6 +127,8 @@ class Admin extends Component {
                 id={el.gallery_id}
                 name={el.name}
                 img={el.img}
+                users_id={el.users_id}
+                username={el.username}
                 deletePhotoFn={this.deletePhoto}
                 updatePhotoFn={this.updatePhoto}
                 addToRedux={this.addToRedux}
@@ -135,9 +147,14 @@ class Admin extends Component {
                             </Link>
                             <h3>{this.state.name}</h3>
                             <input onChange={e => this.handleChange(e, 'name')} value={this.state.name}placeholder='-insert image name-' type="text"/>
+                            <select id='select'>
+                              <option value="Default">-Select Name-</option>
+                              <option onClick={() => this.getSelection()} value='23'>Kelsey</option>
+                              <option onClick={() => this.getSelection()} value="24">Kaitlyn</option>
+                            </select>
                             <div className="save-upload-buttons">
                                 {/* <input onChange={e => this.handleChange(e, 'img')} value={this.state.img} placeholder='-insert image url-' type="text"/> */}
-                                <input onChange={e => this.getSignedRequest(e.target.files)} type="file"/>
+                                <input onChange={e => this.getSignedRequest(e.target.files)} type="file" />
                             </div>
                             <button onClick={() => this.createPhoto()}>Add Image to Gallery</button>
                         </div>

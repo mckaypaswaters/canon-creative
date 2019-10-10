@@ -1,13 +1,25 @@
 import React, {Component} from 'react'
 import Nav from '../Nav/Nav'
 import './kelsey.scss'
+// import kelsey from '../../assets/kelsey.jpg'
+import rotate from './rotate'
 
 class Kelsey extends Component {
 
     render(){
+        let startNum = 0
+        setInterval(() => {
+            startNum++
+            if (startNum === rotate.length){
+                startNum = 0
+            }
+          }, 2000)
+
         return(
             <div className="kelsey-parent">
                 <div className="kelsey-wallpaper">
+                <img src={rotate[startNum]} alt="" className="kelsey-img-wallpaper"/>
+                {/* {this.increment()} */}
                     <Nav/>
                 </div>
                 <div className="below-kelsey">

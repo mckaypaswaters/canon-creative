@@ -1,2 +1,2 @@
 INSERT INTO gallery (img, name, users_id)
-VALUES ($1, $2, 22);
+VALUES ($1, $2, $3);

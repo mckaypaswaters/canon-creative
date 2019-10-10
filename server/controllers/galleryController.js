@@ -6,8 +6,8 @@ module.exports = {
     },
     createPhoto: async (req, res) => {
         const db = req.app.get('db')
-        const {img, name} = req.body
-        const photo = await db.create_photo([img, name])
+        const {img, name, users_id} = req.body
+        const photo = await db.create_photo([img, name, users_id])
         res.status(200).send(photo)
     }, 
     deletePhoto: async (req, res) => {

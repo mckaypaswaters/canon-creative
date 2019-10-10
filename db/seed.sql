@@ -31,3 +31,7 @@ UPDATE gallery
 SET img = 'https://emorywheel.com/wp-content/uploads/2019/03/AJR-Jim-Metzger_Hi-Res-2-1600x1068.jpg',
 name = 'AJR'
 WHERE gallery_id = 14;
+
+SELECT g.gallery_id, g.img, g.name, g.users_id, u.username FROM gallery g
+JOIN users u ON g.users_id = u.id
+ORDER BY gallery_id ASC;

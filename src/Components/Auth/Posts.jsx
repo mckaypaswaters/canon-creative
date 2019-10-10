@@ -75,7 +75,13 @@ class Posts extends Component {
           });
       };
 
-
+      checkUserId() {
+        if (this.props.users_id === 23){
+          return <h5>Taken by: {this.props.username}</h5>
+        } else if (this.props.users_id === 24){
+          return <h5>Taken by: {this.props.username}</h5>
+        }
+      }
 
 
     render(){
@@ -84,7 +90,8 @@ class Posts extends Component {
                 <img className='mapImg'src={this.props.img} alt=""/>
                 <div className='title-input-button'>
                     <button onClick={() => this.props.deletePhotoFn(this.props.id)}className='delete-button'>X</button>
-                    <h3>{this.props.name}</h3>
+                    <h3 className='post-name'>{this.props.name}</h3>
+                    {this.checkUserId()}
                     <input onChange={e => this.handleChange(e, 'name')} value={this.state.name} placeholder='-insert image name-'type="text"/>
                     <div className="save-upload-buttons">
                         {/* <input onChange={e => this.handleChange(e, 'img')} value={this.state.img} placeholder='-insert image url-' type="text"/> */}
