@@ -1,13 +1,6 @@
 .kelsey-parent {
     height: 100vh;
 }
-// .kelsey-wallpaper {
-//     width: 100%;
-//     height: 33vh;
-//     background: url('../../assets/kelsey.jpg');
-//     background-size: cover;
-//     background-position: center;
-// }
 
 .kelsey-wallpaper {
     height: auto;
@@ -27,17 +20,11 @@
         opacity: 0;
     }
     }
-// .wallpaper-pics {
-//     // position: relative;
-//     display: flex;
-// }
 .wallpaper-pics img {
     width: 100%;
     height: auto;
     position: absolute;
-    // animation-name: wallpapers;
-    // animation-direction: normal;
-    // animation-fill-mode: forwards;
+    animation-name: wallpapers;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
     animation-duration: 15s;
@@ -45,17 +32,14 @@
 .wall1{
     width: 100%;
     height: auto;
-    // position: absolute;
     z-index: 1;
     top: 0;
     animation-delay: 10s;
-    // overflow: hidden;
     // margin-top: -220px;
 }
 .wall2 {
     width: 100%;
     height: auto;
-    // position: absolute;
     z-index: 1;
     top: 0;
     animation-delay: 5s;
@@ -64,7 +48,6 @@
 .wall3 {
     width: 100%;
     height: auto;
-    // position: absolute;
     z-index: 1;
     top: 0;
     animation-delay: 0s;
@@ -76,7 +59,6 @@
     display: flex;
     flex-direction: column;
     padding: 0 75px;
-    // margin-top: 25vh;
 }
 
 // @media (min-width: 320px){.kelsey-wallpaper {height: 45%;}}
@@ -86,28 +68,3 @@
 // @media (min-width: 732px){.kelsey-wallpaper {height: 90%;}}
 // @media (min-width: 769px){.kelsey-wallpaper {height: 100%;}}
 
-// @media (min-width: 340px){
-//     .below-kelsey {
-//         margin-top: 28vh;
-//     }
-// }
-// @media (min-width: 369px){
-//     .below-kelsey {
-//         margin-top: 32vh;
-//     }
-// }
-// @media (min-width: 407px){
-//     .below-kelsey {
-//         margin-top: 36vh;
-//     }
-// }
-// @media (min-width: 450px){
-//     .below-kelsey {
-//         margin-top: 40vh;
-//     }
-// }
-// @media (min-width: 488px){
-//     .below-kelsey {
-//         margin-top: 44vh;
-//     }
-// }

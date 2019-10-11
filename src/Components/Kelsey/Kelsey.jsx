@@ -9,31 +9,37 @@ class Kelsey extends Component {
     state = {
         margin: 0
     }
+    
     imageRef = React.createRef()
-
-
+    
     async componentDidMount(){
-        window.addEventListener('resize', this.calcHeight)
-        console.dir(this.imageRef.current.children[0])
         await this.calcHeight()
-        
+        window.addEventListener('resize', this.calcHeight)
+        // console.dir(this.imageRef.current.children[0])
     }
+    componentDidUpdate = (prevProps, prevState) => {
+        if (prevState.margin !== this.state.margin){
+           this.calcHeight()
+        }
+    }
+
     calcHeight = () => {
-        
+        console.dir(this.imageRef.current)
         this.setState({
-            margin: this.imageRef.current.children[0].clientHeight
+            margin: this.imageRef.current.clientHeight
         })
     }
 
     render(){
-        
 
         return(
             <div className="kelsey-parent">
                 <div className="kelsey-wallpaper">
                     <Nav/>
-                    <div ref={this.imageRef} className="wallpaper-pics">
-                        <img src="https://canon-creative.s3-us-west-1.amazonaws.com/rotate/rotate5.jpg" alt="" className="wall1"/>
+                    <div  className="wallpaper-pics">
+                        <img
+                        onLoad={this.calcHeight}
+                        ref={this.imageRef} src="https://canon-creative.s3-us-west-1.amazonaws.com/rotate/rotate5.jpg" alt="" className="wall1"/>
                         <img src="https://canon-creative.s3-us-west-1.amazonaws.com/rotate/rotate4.jpg" alt="" className="wall2"/>
                         <img src="https://canon-creative.s3-us-west-1.amazonaws.com/rotate/rotate3.JPG" alt="" className="wall3"/>
                     </div>
