@@ -2,27 +2,47 @@ import React, {Component} from 'react'
 import Nav from '../Nav/Nav'
 import './kelsey.scss'
 // import kelsey from '../../assets/kelsey.jpg'
-import rotate from './rotate'
+// import rotate from './rotate'
 
 class Kelsey extends Component {
 
+    state = {
+        margin: 0
+    }
+    imageRef = React.createRef()
+
+
+    async componentDidMount(){
+        window.addEventListener('resize', this.calcHeight)
+        console.dir(this.imageRef.current.children[0])
+        await this.calcHeight()
+        
+    }
+    calcHeight = () => {
+        
+        this.setState({
+            margin: this.imageRef.current.children[0].clientHeight
+        })
+    }
+
     render(){
-        let startNum = 0
-        setInterval(() => {
-            startNum++
-            if (startNum === rotate.length){
-                startNum = 0
-            }
-          }, 2000)
+        
 
         return(
             <div className="kelsey-parent">
                 <div className="kelsey-wallpaper">
-                <img src={rotate[startNum]} alt="" className="kelsey-img-wallpaper"/>
-                {/* {this.increment()} */}
                     <Nav/>
+                    <div ref={this.imageRef} className="wallpaper-pics">
+                        <img src="https://canon-creative.s3-us-west-1.amazonaws.com/rotate/rotate5.jpg" alt="" className="wall1"/>
+                        <img src="https://canon-creative.s3-us-west-1.amazonaws.com/rotate/rotate4.jpg" alt="" className="wall2"/>
+                        <img src="https://canon-creative.s3-us-west-1.amazonaws.com/rotate/rotate3.JPG" alt="" className="wall3"/>
+                    </div>
                 </div>
-                <div className="below-kelsey">
+                <div 
+                style={{
+                    marginTop: this.state.margin
+                }}
+                className="below-kelsey">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, sunt veniam impedit eaque nihil blanditiis. Sint dolorum saepe maxime culpa placeat soluta doloremque perspiciatis ipsum itaque. Numquam iusto nesciunt distinctio?</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, explicabo sed hic eveniet neque, pariatur obcaecati sunt excepturi quis at architecto quae minima corrupti culpa vel possimus impedit, quos animi.</p>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit maxime et deleniti fuga sint cumque. Optio, quibusdam sapiente? Quidem totam deleniti sunt porro aperiam adipisci omnis pariatur laborum dolorem tenetur?</p>

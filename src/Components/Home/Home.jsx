@@ -14,7 +14,6 @@ class Home extends React.Component {
         return(
             <div className='home-parent'>
                 <div className='home-wallpaper'>
-                    {console.log(document.getElementsByClassName('home-wallpaper'))}
                     <Nav/>
                 </div>
                 <div className='below-home'>
