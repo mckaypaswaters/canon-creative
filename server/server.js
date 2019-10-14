@@ -11,6 +11,8 @@ const s3Ctrl = require('./controllers/s3Controller')
 const aws = require('aws-sdk')
 const {S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env
 
+app.use(express.static(`${__dirname}/../build`))
+
 app.use(express.json())
 app.use(session({
     resave: false,
