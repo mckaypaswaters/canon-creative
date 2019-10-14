@@ -10,25 +10,25 @@ class Kelsey extends Component {
         margin: 0
     }
     
-    imageRef = React.createRef()
+    // imageRef = React.createRef()
     
-    async componentDidMount(){
-        await this.calcHeight()
-        window.addEventListener('resize', this.calcHeight)
-        // console.dir(this.imageRef.current.children[0])
-    }
-    componentDidUpdate = (prevProps, prevState) => {
-        if (prevState.margin !== this.state.margin){
-           this.calcHeight()
-        }
-    }
+    // async componentDidMount(){
+    //     await this.calcHeight()
+    //     window.addEventListener('resize', this.calcHeight)
+    //     // console.dir(this.imageRef.current.children[0])
+    // }
+    // componentDidUpdate = (prevProps, prevState) => {
+    //     if (prevState.margin !== this.state.margin){
+    //        this.calcHeight()
+    //     }
+    // }
 
-    calcHeight = () => {
-        console.dir(this.imageRef.current)
-        this.setState({
-            margin: this.imageRef.current.clientHeight
-        })
-    }
+    // calcHeight = () => {
+    //     console.dir(this.imageRef.current)
+    //     this.setState({
+    //         margin: this.imageRef.current.clientHeight
+    //     })
+    // }
 
     render(){
 
@@ -38,8 +38,8 @@ class Kelsey extends Component {
                     <Nav/>
                     <div  className="wallpaper-pics">
                         <img
-                        onLoad={this.calcHeight}
-                        ref={this.imageRef} src="https://canon-creative.s3-us-west-1.amazonaws.com/rotate/rotate5.jpg" alt="" className="wall1"/>
+                        // onLoad={this.calcHeight}
+                        src="https://canon-creative.s3-us-west-1.amazonaws.com/rotate/rotate5.jpg" alt="" className="wall1"/>
                         <img src="https://canon-creative.s3-us-west-1.amazonaws.com/rotate/rotate4.jpg" alt="" className="wall2"/>
                         <img src="https://canon-creative.s3-us-west-1.amazonaws.com/rotate/rotate3.JPG" alt="" className="wall3"/>
                     </div>

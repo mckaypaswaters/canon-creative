@@ -4,14 +4,14 @@
 .kaitlyn-wallpaper {
     width: 100%;
     height: 33vh;
-    background: url('../../assets/wedding.jpg');
+    background: url('../../assets/kasja3.jpg');
     background-size: cover;
     background-position: center;
 }
 .below-kaitlyn {
     display: flex;
     flex-direction: column;
-    padding: 0 50px;
+    padding: 0 25px;
 }
 
 @media (min-width: 320px){.kaitlyn-wallpaper {height: 45%;}}

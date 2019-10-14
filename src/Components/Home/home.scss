@@ -2,15 +2,23 @@
 .home-parent {
     height: 100vh;
 }
+.home-parent2 {
+    height: 100vh;
+}
 .home-wallpaper {
     width: 100%;
-    height: 33vh;
-    // background: url('https://i.imgur.com/3xU1m5G.jpg');
-    background: url('https://canon-creative.s3-us-west-1.amazonaws.com/28a1fcc2-5d14-4e9f-99b2-2df94275958c-landing.jpg');
-    // background: url('https://canon-creative.s3-us-west-1.amazonaws.com/1418bd36-403c-4047-b0c2-18f8e9169927-engagement.jpg');
+    height: 90vh;
+    background: url('../../assets/elissa.jpg');
     background-size: cover;
     background-position: center;
 }
+// .home-wallpaper2 {
+//     width: 100%;
+//     height: 90vh;
+//     background: url('https://canon-creative.s3-us-west-1.amazonaws.com/1dd6d5c4-e92e-4063-938f-5849ee210a9d-BobbyHome-65.jpg');
+//     background-size: cover;
+//     background-position: center;
+// }
 .below-home {
     display: flex;
     flex-direction: column;

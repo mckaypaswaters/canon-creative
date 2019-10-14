@@ -7,6 +7,7 @@ import About from './Components/Home/About'
 import Kaitlyn from './Components/Kaitlyn/Kaitlyn'
 import Kelsey from './Components/Kelsey/Kelsey'
 import Contact from './Components/Contact/Contact'
+import KelseyTest from './Components/Kelsey/KelseyTest'
 
 export default (
     <Switch>
@@ -17,5 +18,6 @@ export default (
         <Route path='/kaitlyn-harris-photo' component={Kaitlyn}/>
         <Route path='/k-riddle-films' component={Kelsey}/>
         <Route path='/contact' component={Contact}/>
+        <Route path='/test' component={KelseyTest}/>
     </Switch>
 )

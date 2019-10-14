@@ -2,20 +2,28 @@ import React from 'react'
 import Nav from '../Nav/Nav'
 // import About from '../Home/About'
 import './home.scss'
+// import Slider from 'react-slick'
 
 class Home extends React.Component {
 
-    // componentDidMount(){
-    //     let wallpaper = document.querySelector('home-wallpaper')
-    //     console.log(wallpaper)
-    // }
     
     render(){
+        // const settings = {
+        //     dots: true,
+        //     infinite: true,
+        //     speed: 500,
+        //     slidesToShow: 1,
+        //     slidesToScroll: 1,
+        //     fade: true,
+        //     cssEase: 'linear',
+        //     autoplay: true,
+        //     autoplaySpeed: 5000
+        // }
         return(
             <div className='home-parent'>
-                <div className='home-wallpaper'>
-                    <Nav/>
-                </div>
+                    <div className='home-wallpaper'>
+                        <Nav/>
+                    </div>
                 <div className='below-home'>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, sequi dolores ad iusto molestiae perspiciatis praesentium saepe. Odio, nisi. Quis laboriosam odit error reprehenderit a sequi fuga quae alias pariatur.</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, repellendus? Eos quibusdam, quae dicta eaque modi reprehenderit doloribus, dignissimos omnis saepe nesciunt perferendis. Modi provident quae odit illo totam eum.</p>

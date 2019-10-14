@@ -28,7 +28,6 @@ class Admin extends Component {
         const photos = await axios.get('/api/photos')
         this.setState({galleryArr: photos.data})
         this.addToRedux(photos.data)
-        console.log(photos)
     }
     async createPhoto(){
         const {name, img, users_id} = this.state
