@@ -20,7 +20,7 @@ class Contact extends Component {
     }
     submitTwilio(){
         axios.post('/api/messages', this.state)
-        sweet.fire({type: 'success', text: 'Your message has been sent!'})
+        sweet.fire({type: 'success', text: 'Your message has been sent!', showConfirmButton: false, timer: 1500})
         this.clearInputs()
     }
     clearInputs(){

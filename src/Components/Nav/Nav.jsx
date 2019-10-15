@@ -25,19 +25,19 @@ class Nav extends React.Component {
                             <nav className="nav-row">
                                 <nav className="nav-list">
                                     <Link className='link-decoration' to='/'>
-                                        <li>Home</li>
+                                        <li className='hover-test'>Home</li>
                                     </Link>
                                     <Link className='link-decoration' to='/about'>
-                                        <li>About</li>
+                                        <li className='hover-test'>About</li>
                                     </Link>
                                     {/* <Link className="link-decoration" to='/k-riddle-films'>
                                         <li>K. Riddle Films</li>
                                     </Link> */}
                                     <Link className="link-decoration" to='/kaitlyn-harris-photo'>
-                                        <li>Kaitlyn Harris Photos</li>
+                                        <li className='hover-test'>Kaitlyn Harris Photos</li>
                                     </Link>
                                     <Link className="link-decoration" to='/contact'>
-                                        <li>Contact</li>
+                                        <li className='hover-test'>Contact</li>
                                     </Link>
                                 </nav>
                             </nav>

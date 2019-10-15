@@ -1,3 +1,5 @@
+@import '../../App.scss';
+
 .about-parent {
     height: 100vh;
 }
@@ -11,7 +13,19 @@
 .below-about {
     display: flex;
     flex-direction: column;
-    padding: 0 75px;
+    padding: 0 100px;
+    .about-info {
+        height: auto;
+        background: $primaryGrey;
+        padding: 2vh 14vw;
+        font-family: $fontFamily1;
+    }
+}
+
+@media (max-width: 414px){
+    .below-about {
+        padding: 0 35px;
+    }
 }
 
 @media (min-width: 320px){.about-wallpaper {height: 45%;}}

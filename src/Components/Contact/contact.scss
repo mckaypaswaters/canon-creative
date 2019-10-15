@@ -12,11 +12,11 @@
     height: 8vh;
 }
 .contact-h1 {
-    font-family: $fontFamily;
+    font-family: $fontFamily1;
     text-align: center;
 }
 .contact-h4 {
-    font-family: $fontFamily;
+    font-family: $fontFamily1;
 }
 
 .text-img-input {
@@ -42,36 +42,36 @@
     height: 4vh;
     width: 36vw;
     margin: 0 4px 0 0;
-    font-family: $fontFamily;
+    font-family: $fontFamily1;
 }
 .lastNameInput {
     height: 4vh;
     width: 36vw;
     margin: 0 0 0 4px;
-    font-family: $fontFamily;
+    font-family: $fontFamily1;
 }
 .emailInput {
     height: 4vh;
     width: 76vw;
     margin: 10px 0 0 10px;
-    font-family: $fontFamily;
+    font-family: $fontFamily1;
 }
 .subjectInput {
     height: 4vh;
     width: 76vw;
     margin: 10px 0 0 10px;
-    font-family: $fontFamily;
+    font-family: $fontFamily1;
 }
 .messageInput {
     height: 16vh;
     width: 76vw;
     margin: 10px 0 0 10px;
     resize: none;
-    font-family: $fontFamily;
+    font-family: $fontFamily1;
 }
 .contact-submit {
     margin: 15px 0 0 150px;
-    font-family: $fontFamily;
+    font-family: $fontFamily1;
 }
 
 @media (min-width: 768px) {

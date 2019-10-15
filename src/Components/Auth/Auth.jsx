@@ -29,7 +29,7 @@ class Auth extends Component {
         const {username, password} = this.state
         const res = await axios.post('/auth/login', {username, password})
         if (res.data.user){
-            sweet.fire({type: 'success', text: res.data.message})
+            sweet.fire({type: 'success', text: res.data.message, showConfirmButton: false, timer: 1500})
             this.props.history.push('/admin')
         } else if (res.data.message === 'Username does not exist'){
             sweet.fire({type: 'error', text: res.data.message})
